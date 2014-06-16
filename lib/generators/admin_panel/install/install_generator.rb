@@ -33,6 +33,14 @@ module AdminPanel
 				directory 'assets', 'app/assets'
 			end
 
+			def copy_concerns
+				directory 'concerns', 'app/concerns'
+			end
+
+			def copy_helpers
+				directory 'helpers', 'app/helpers'
+			end
+
 			def copy_scaffold
 				directory 'controllers', 'app/controllers'
 				directory 'views', 'app/views'

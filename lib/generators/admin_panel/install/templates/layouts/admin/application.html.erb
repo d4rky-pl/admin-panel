@@ -13,8 +13,10 @@
 		<%%= render partial: 'layouts/admin/navigation' %>
 	</header>
 	<main role="main">
-		<%%= render partial: 'layouts/admin/messages' %>
-		<%%= yield %>
+		<div class="container">
+			<%%= render partial: 'layouts/admin/messages' %>
+			<%%= yield %>
+		</div>
 	</main>
 </body>
 </html>
