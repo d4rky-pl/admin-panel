@@ -21,5 +21,9 @@ Gem::Specification.new do |spec|
 	spec.add_development_dependency 'rspec', '~> 3.0'
 	spec.add_development_dependency 'ammeter', '~> 1.0'
 
-	spec.add_runtime_dependency 'railties', '~> 4.0', '~> 4.1'
+	spec.add_runtime_dependency 'railties', '>= 4.0.0'
+	spec.add_runtime_dependency 'sass-rails', '>= 4.0.0'
+	spec.add_runtime_dependency 'bootstrap-sass', '~> 3.1'
+	spec.add_runtime_dependency 'simple_form', '~> 3.0'
+	spec.add_runtime_dependency 'devise', '~> 3.2'
 end
