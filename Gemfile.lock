@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    admin-scaffold (0.1.0)
+    admin-panel (0.1.0)
       bootstrap-sass (~> 3.1)
       devise (~> 3.2)
       railties (>= 4.0.0)
@@ -110,7 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  admin-scaffold!
+  admin-panel!
   ammeter (~> 1.0)
   bundler (~> 1.5)
   rake (~> 10.0)

@@ -1,15 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
-require 'admin-scaffold/version'
+require 'admin-panel/version'
 
 Gem::Specification.new do |spec|
-	spec.name          = 'admin-scaffold'
-	spec.version       = AdminScaffold::VERSION
+	spec.name          = 'admin-panel'
+	spec.version       = AdminPanel::VERSION
 
 	spec.authors       = ['Michał Matyas']
 	spec.email         = ['michal@higher.lv']
-	spec.summary       = 'Admin-scaffold generates Twitter Bootstrap based admin panel scaffolder'
-	spec.description   = 'Admin-scaffold generates Twitter Bootstrap based admin panel scaffolder. Requires Rails 4.'
-	spec.homepage      = 'https://github.com/d4rky-pl/admin-scaffold'
+	spec.summary       = 'Generates Twitter Bootstrap based admin panel with scaffolder'
+	spec.description   = 'Generates Twitter Bootstrap based admin panel with scaffolder. Project is quite opinionated, requires Rails 4, SASS, SimpleForm and Devise.'
+	spec.homepage      = 'https://github.com/d4rky-pl/admin-panel'
 	spec.license       = 'MIT'
 
 	spec.files         = `git ls-files`.split($/)

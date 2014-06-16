@@ -1,6 +1,6 @@
 require 'rails/generators'
 
-module AdminScaffold
+module AdminPanel
 	module Generators
 		class InstallGenerator < ::Rails::Generators::Base
 			desc 'Generate basic admin panel with authentication namespaced as Admin'
@@ -33,7 +33,7 @@ module AdminScaffold
 			end
 
 			def create_admin_model
-
+o
 			end
 
 		end
