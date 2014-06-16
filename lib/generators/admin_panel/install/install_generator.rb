@@ -7,9 +7,6 @@ module AdminPanel
 			source_root ::File.expand_path('../templates', __FILE__)
 
 			class_option :template_engine
-			class_option :stylesheet_engine
-			class_option :namespace, :type => :string, :default => 'admin', :desc => "Set namespace (default: admin)"
-			class_option :skip_turbolinks, :type => :boolean, :default => false, :desc => "Skip Turbolinks on assets"
 
 			def install_devise
 				invoke 'devise:install'
@@ -23,9 +20,13 @@ module AdminPanel
 
 			def copy_layout
 				@app_name = ::Rails.application.class.to_s.split("::").first.humanize
-				template "layouts/admin/application.html.#{options[:template_engine]}", "app/views/layouts/admin/application.html.#{options[:template_engine]}"
-				copy_file "layouts/admin/_messages.html.#{options[:template_engine]}", "app/views/layouts/admin/_messages.html.#{options[:template_engine]}"
-				copy_file "layouts/admin/_navigation.html.#{options[:template_engine]}", "app/views/layouts/admin/_navigation.html.#{options[:template_engine]}"
+				extension = "html.#{options[:template_engine]}"
+
+				template "layouts/admin/application.#{extension}", "app/views/layouts/admin/application.#{extension}"
+				[ '_messages', '_navigation'].each do |file|
+					filename = "#{file}.#{extension}"
+					copy_file "layouts/admin/#{filename}", "app/views/layouts/admin/#{filename}"
+				end
 			end
 
 			def copy_assets
