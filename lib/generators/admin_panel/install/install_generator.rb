@@ -19,8 +19,13 @@ module AdminPanel
 				invoke 'simple_form:install', [], ['--bootstrap']
 			end
 
+			attr_reader :app_name
+
 			def copy_layout
+				@app_name = ::Rails.application.class.to_s.split("::").first.humanize
 				template "layouts/admin/application.html.#{options[:template_engine]}", "app/views/layouts/admin/application.html.#{options[:template_engine]}"
+				copy_file "layouts/admin/_messages.html.#{options[:template_engine]}", "app/views/layouts/admin/_messages.html.#{options[:template_engine]}"
+				copy_file "layouts/admin/_navigation.html.#{options[:template_engine]}", "app/views/layouts/admin/_navigation.html.#{options[:template_engine]}"
 			end
 
 			def copy_assets
@@ -40,7 +45,15 @@ Admin.create!({ email: 'admin@example.com', password: 'administrator' })
 			end
 
 			def create_routes
-				route %Q(devise_for :admin, :only => [:sessions, :passwords])
+				route %Q(
+  devise_for :admin,
+           :only => [:sessions, :passwords],
+           :controllers => { :sessions => 'admin/sessions', :passwords => 'admin/passwords' }
+
+  namespace :admin do
+    get '/', to: 'dashboard#index', as: :dashboard
+  end
+)
 			end
 
 			def show_install_message
