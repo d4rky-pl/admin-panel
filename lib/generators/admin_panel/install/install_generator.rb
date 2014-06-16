@@ -20,7 +20,7 @@ module AdminPanel
 			end
 
 			def copy_layout
-				template "layouts/application.html.#{options[:template_engine]}", "app/views/layouts/admin/application.html.#{options[:template_engine]}"
+				template "layouts/admin/application.html.#{options[:template_engine]}", "app/views/layouts/admin/application.html.#{options[:template_engine]}"
 			end
 
 			def copy_assets
@@ -33,9 +33,19 @@ module AdminPanel
 			end
 
 			def create_admin_model
-o
+				invoke 'active_record:devise', ['admin'], ['--routes', false]
+				append_to_file 'db/seeds.rb', %Q(
+Admin.create!({ email: 'admin@example.com', password: 'administrator' })
+)
 			end
 
+			def create_routes
+				route %Q(devise_for :admin, :only => [:sessions, :passwords])
+			end
+
+			def show_install_message
+				readme "README"
+			end
 		end
 	end
 end

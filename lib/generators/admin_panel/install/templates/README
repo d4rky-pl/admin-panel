@@ -1,0 +1,10 @@
+===============================================================================
+
+  Remember to invoke these commands after the installation process is done:
+
+    $ rake db:migrate
+    $ rake db:seed
+
+  Your default account is set to admin@example.com , password: administrator
+
+===============================================================================
