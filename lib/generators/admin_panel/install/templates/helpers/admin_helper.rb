@@ -1,4 +1,4 @@
-class AdminHelper
+module AdminHelper
 	def admin_pages
 		[]
 	end
