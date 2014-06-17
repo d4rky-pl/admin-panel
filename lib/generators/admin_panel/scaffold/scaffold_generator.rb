@@ -10,6 +10,7 @@ module AdminPanel
       source_root File.expand_path('../templates', __FILE__)
 
       class_option :template_engine, desc: 'Template engine to be invoked (erb or haml).'
+      class_option :test_framework, desc: 'Test framework to be used.'
 
       check_class_collision suffix: "Controller"
       check_class_collision suffix: "ControllerTest"
@@ -46,8 +47,8 @@ module AdminPanel
         template "controllers/controller.rb.erb", File.join('app/controllers', prefix, class_path, "#{controller_file_name}_controller.rb")
       end
 
-      def create_test_files
-        template "tests/test_unit/functional_test.rb.erb", File.join("test/controllers", prefix, controller_class_path, "#{controller_file_name}_controller_test.rb")
+      hook_for :test_framework, in: :rails do |helper|
+        invoke helper, [prefixed_controller_class_name]
       end
 
       hook_for :helper, in: :rails do |helper|
