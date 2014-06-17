@@ -18,9 +18,6 @@ module AdminPanel
 			class_option :orm, banner: "NAME", type: :string, required: true,
 			             desc:         "ORM to generate the controller for"
 
-			class_option :html, type: :boolean, default: true,
-			             desc:        "Generate a scaffold with HTML output"
-
 			class_option :parent_controller, banner: "admin", type: :string, default: "application",
 			             desc:                       "Define the parent controller"
 

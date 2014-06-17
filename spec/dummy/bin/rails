@@ -1,0 +1,11 @@
+require 'fileutils'
+
+# This code only makes sure that invoke method in scaffold generator has been run correctly
+if ARGV[0] == "generate" && ARGV[1] == "model"
+	root_path = File.expand_path('../../', __FILE__)
+	models_path = File.join(root_path, 'app', 'models')
+	filename = ARGV[2]
+
+	FileUtils.mkdir_p models_path
+	FileUtils.touch File.join(models_path, "#{filename.downcase}.rb")
+end
