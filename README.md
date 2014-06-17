@@ -9,13 +9,13 @@ Installation
 Start with adding these gems to your Gemfile:
 
 ```ruby
-gem 'admin-panel', '~> 0.1.0'
+gem 'admin-panel', '~> 0.1.1'
 gem 'devise', '~> 3.2'
 gem 'simple_form', '3.1.0.rc1'
 gem 'bootstrap-sass', '~> 3.1'
 ```
 
-Then do @bundle install@ and run the installer:
+Then do `bundle install` and run the installer:
 
 ```bash
 $ rails generate admin_panel:install
@@ -33,7 +33,7 @@ $ rails generate admin_panel:scaffold NAME [field:type field:type ...]
 Running tests
 -------------
 
-Tests can be run using @rake spec@. They are written using rspec and [ammeter](https://github.com/alexrothenberg/ammeter)
+Tests can be run using `rake spec`. They are written using rspec and [ammeter](https://github.com/alexrothenberg/ammeter).
 
 Thanks
 ------
