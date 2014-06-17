@@ -45,5 +45,6 @@ Things that'd be nice to have:
 - support for anything more than Active Record
 - support for anything more than Erb (haml, slim)
 - namespace change support and more configuration options
+- kaminari/will_paginate support 
 - I liked the idea of copying the files to your project at first but now it just seems silly; I should probably rewrite everything from scratch to work more similarly to Devise, including the ability to extend default controllers where necessary
 - I was also supposed to add Carrierwave support too but ran out of time
