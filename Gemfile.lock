@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    admin-panel (0.1.0)
+    admin-panel (0.1.2)
       bootstrap-sass (~> 3.1)
       devise (~> 3.2)
       railties (>= 4.0.0)

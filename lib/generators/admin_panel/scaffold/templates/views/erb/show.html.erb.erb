@@ -2,21 +2,21 @@
 
 <table class="table table-striped">
 <tbody>
-	<% attributes.reject(&:password_digest?).each do |attribute| -%>
-		<tr>
-			<td><strong><%= attribute.human_name %>:</strong></td>
-			<td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
-		</tr>
-	<% end -%>
+  <% attributes.reject(&:password_digest?).each do |attribute| -%>
+    <tr>
+      <td><strong><%= attribute.human_name %>:</strong></td>
+      <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+    </tr>
+  <% end -%>
 </tbody>
 </table>
 
 <div class="row">
-	<div class="col-md-6">
-		<%%= link_to 'Back', <%= prefixed_index_helper %>_path, class: 'btn btn-default' %>
-	</div
-	<div class="col-md-6 text-right">
-		<%%= link_to 'Edit', edit_<%= prefixed_plain_model_url %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
-		<%%= link_to 'Destroy', <%= "[:#{prefix}, @#{singular_table_name}]" %>, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-	</div>
+  <div class="col-md-6">
+    <%%= link_to 'Back', <%= prefixed_index_helper %>_path, class: 'btn btn-default' %>
+  </div
+  <div class="col-md-6 text-right">
+    <%%= link_to 'Edit', edit_<%= prefixed_plain_model_url %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
+    <%%= link_to 'Destroy', <%= "[:#{prefix}, @#{singular_table_name}]" %>, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div>
 </div>

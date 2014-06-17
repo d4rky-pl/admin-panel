@@ -1,20 +1,20 @@
 <nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="<%= admin_dashboard_path %>">App name</a>
-		</div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= admin_dashboard_path %>">App name</a>
+    </div>
 
-		<% if admin_signed_in? %>
-			<ul class="nav navbar-nav">
-				<% admin_pages.each do |page| %>
-					<li class="<%= controller_name == page[:controller] ? 'active' : '' %>">
-						<a href="<%= page[:url] %>"><%= page[:name] %></a>
-					</li>
-				<% end %>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
-			</ul>
-		<% end %>
-	</div>
+    <% if admin_signed_in? %>
+      <ul class="nav navbar-nav">
+        <% admin_pages.each do |page| %>
+          <li class="<%= controller_name == page[:controller] ? 'active' : '' %>">
+            <a href="<%= page[:url] %>"><%= page[:name] %></a>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+  </div>
 </nav>

@@ -1,3 +1,3 @@
 class Admin::DashboardController < ApplicationController
-	include Administrable
+  include Administrable
 end
