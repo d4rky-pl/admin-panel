@@ -1,7 +1,7 @@
 module AdminHelper
 	def admin_pages
 		# TODO: something more elegant
-		non_scaffold_pages = %w(dashboard sessions)
+		non_scaffold_pages = %w(dashboard sessions passwords)
 
 		Dir.glob(Rails.root.join('app', 'controllers', 'admin', '*.rb')).map do |path|
 			filename = File.basename(path)
