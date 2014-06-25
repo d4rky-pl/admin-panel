@@ -1,0 +1,10 @@
+.page-header
+  = link_to <%= prefixed_index_helper %>_path, class: 'btn btn-default pull-right' do
+    %i.glyphicon.glyphicon-list-alt
+    Back
+
+  %h1
+    New <%= human_name %>
+
+= render 'form'
+

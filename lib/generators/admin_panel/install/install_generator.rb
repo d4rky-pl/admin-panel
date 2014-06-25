@@ -22,10 +22,10 @@ module AdminPanel
         @app_name = ::Rails.application.class.to_s.split("::").first.humanize
         extension = "html.#{options[:template_engine]}"
 
-        template "layouts/admin/application.#{extension}", "app/views/layouts/admin/application.#{extension}"
+        template "layouts/#{options[:template_engine]}/admin/application.html.#{options[:template_engine]}", "app/views/layouts/admin/application.html.#{options[:template_engine]}"
         ['_messages', '_navigation'].each do |file|
           filename = "#{file}.#{extension}"
-          copy_file "layouts/admin/#{filename}", "app/views/layouts/admin/#{filename}"
+          copy_file "layouts/#{options[:template_engine]}/admin/#{filename}", "app/views/layouts/admin/#{filename}"
         end
       end
 
@@ -39,7 +39,7 @@ module AdminPanel
 
       def copy_scaffold
         directory 'controllers', 'app/controllers'
-        directory 'views', 'app/views'
+        directory "views/#{options[:template_engine]}", 'app/views'
       end
 
       def create_admin_model

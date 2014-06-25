@@ -1,0 +1,30 @@
+.page-header
+  = link_to new_<%= prefixed_plain_model_url %>_path, class: 'btn btn-success pull-right' do
+    %i.glyphicon.glyphicon-plus
+    New <%= human_name %>
+
+  %h1
+    <%= plural_table_name.humanize %></h1>
+
+%table.table.table-striped.table-hover.table-bordered
+  %thead
+    %tr
+<%- attributes.reject(&:password_digest?).each do |attribute| -%>
+      %th
+        <%= attribute.human_name %>
+<%- end -%>
+      %th
+      %th
+
+  %tbody
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr
+<%- attributes.reject(&:password_digest?).each do |attribute| -%>
+        %td
+          = link_to <%= singular_table_name %>.<%= attribute.name %>, <%= "[:#{prefix}, #{singular_table_name}]" %>
+<%- end -%>
+        %td.text-right
+          = link_to 'Edit', edit_<%= prefixed_plain_model_url %>_path(<%= singular_table_name %>), class: 'btn btn-primary'
+
+        %td.text-right
+          = link_to 'Destroy', <%= "[:#{prefix}, #{singular_table_name}]" %>, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

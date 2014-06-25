@@ -1,0 +1,19 @@
+.page-header
+  = link_to <%= prefixed_index_helper %>_path, class: 'btn btn-default pull-right' do
+    %i.glyphicon.glyphicon-list-alt
+    Back
+
+  = link_to edit_<%= prefixed_plain_model_url %>_path(@<%= singular_table_name %>), class: 'btn btn-primary pull-right' do
+    %i.glyphicon.glyphicon-pencil
+    Edit
+
+  %h1
+    Show <%= human_name %>
+
+%dl.dl-horizontal
+<%- attributes.reject(&:password_digest?).each do |attribute| -%>
+  %dt
+    <%= attribute.human_name %>:
+  %dd
+    = @<%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>

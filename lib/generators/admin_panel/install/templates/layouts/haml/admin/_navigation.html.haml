@@ -1,0 +1,13 @@
+%nav.navbar.navbar-default{role: "navigation"}
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{href: admin_dashboard_path} App name
+
+    - if admin_signed_in?
+      %ul.nav.navbar-nav
+        - admin_pages.each do |page|
+          %li{class: controller_name == page[:controller] ? 'active' : ''}
+            %a{href: page[:url]}= page[:name]
+
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Sign out', destroy_admin_session_path, method: :delete

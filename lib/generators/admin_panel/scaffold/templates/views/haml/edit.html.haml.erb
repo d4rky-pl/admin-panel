@@ -1,0 +1,12 @@
+.page-header
+  = link_to <%= prefixed_index_helper %>_path, class: 'btn btn-default pull-right' do
+    %i.glyphicon.glyphicon-list-alt
+    Back
+
+  = link_to <%= "[:#{prefix}, @#{singular_table_name}]" %>, class: 'btn btn-primary pull-right' do
+    %i.glyphicon.glyphicon-info-sign
+    Show
+  %h1
+    Editing <%= human_name %>
+
+= render 'form'
