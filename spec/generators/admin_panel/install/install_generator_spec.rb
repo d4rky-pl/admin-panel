@@ -19,6 +19,10 @@ describe AdminPanel::Generators::InstallGenerator do
       it_should_exist 'config/initializers/simple_form.rb'
     end
 
+    describe 'kaminari:config' do
+      it_should_exist 'config/initializers/kaminari_config.rb'
+    end
+
     describe 'copying layout' do
       it_should_exist 'app/views/layouts/admin/application.html.erb'
       it_should_exist 'app/views/layouts/admin/_messages.html.erb'

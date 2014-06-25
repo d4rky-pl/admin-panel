@@ -28,3 +28,6 @@
 
         %td.text-right
           = link_to 'Destroy', <%= "[:#{prefix}, #{singular_table_name}]" %>, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+.text-center
+  = paginate @<%= plural_table_name %>, theme: 'admin-bootstrap'

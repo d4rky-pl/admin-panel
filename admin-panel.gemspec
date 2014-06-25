@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Michał Matyas']
   spec.email       = ['michal@higher.lv']
   spec.summary     = 'Generates Twitter Bootstrap based admin panel with scaffolder'
-  spec.description = 'Generates Twitter Bootstrap based admin panel with scaffolder. Project is quite opinionated, requires Rails 4, SASS, SimpleForm and Devise.'
+  spec.description = 'Generates Twitter Bootstrap based admin panel with scaffolder. Project is quite opinionated, requires Rails 4, SASS, SimpleForm, Kaminari and Devise.'
   spec.homepage    = 'https://github.com/d4rky-pl/admin-panel'
   spec.license     = 'MIT'
 
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'bootstrap-sass', '~> 3.1'
   spec.add_runtime_dependency 'simple_form', '>= 3.1.0.rc1'
   spec.add_runtime_dependency 'devise', '~> 3.2'
+  spec.add_runtime_dependency 'kaminari', '~> 0.16'
 end

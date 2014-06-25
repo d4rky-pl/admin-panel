@@ -13,6 +13,7 @@ gem 'admin-panel', '~> 0.1.1'
 gem 'devise', '~> 3.2'
 gem 'simple_form', '3.1.0.rc1'
 gem 'bootstrap-sass', '~> 3.1'
+gem 'kaminari', '~> 0.16.1'
 ```
 
 Then do `bundle install` and run the installer:
@@ -40,6 +41,8 @@ Thanks
 
 This gem was based mostly on two different pieces of software: [bootstrap-generators](https://github.com/decioferreira/bootstrap-generators) and [rails-admin-scaffold](https://github.com/dhampik/rails-admin-scaffold)
 
+I also took the liberty of copying kaminari bootstrap templates from [kaminari-bootstrap](https://github.com/mcasimir/kaminari-bootstrap)
+
 TODO
 ----
 
@@ -51,6 +54,6 @@ Things that'd be nice to have:
 - ~~support for anything more than Erb (haml)~~
 - support for slim
 - namespace change support and more configuration options
-- kaminari/will_paginate support 
+- ~~kaminari/will_paginate support~~ 
 - I liked the idea of copying the files to your project during install at first but now it just seems silly; I should probably rewrite everything from scratch to work more similarly to Devise, including the ability to extend default controllers where necessary
 - I was also supposed to add Carrierwave support too but ran out of time

@@ -16,6 +16,10 @@ module AdminPanel
         invoke 'simple_form:install', [], ['--bootstrap']
       end
 
+      def generate_kaminari_config
+        invoke 'kaminari:config'
+      end
+
       attr_reader :app_name
 
       def copy_layout

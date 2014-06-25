@@ -9,7 +9,7 @@ class <%= prefixed_controller_class_name %>Controller < <%= parent_controller_cl
 
   # GET <%= prefixed_route_url %>
   def index
-    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+    @<%= plural_table_name %> = <%= class_name %>.page params[:page]
   end
 
   # GET <%= prefixed_route_url %>/1
