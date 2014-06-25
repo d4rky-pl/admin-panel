@@ -1,12 +1,13 @@
 <div class="page-header">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Editing <%= singular_table_name %></h2>
-    </div>
-    <div class="col-md-4 text-right">
-      <%%= link_to 'Back', <%= prefixed_index_helper %>_path, class: 'btn btn-default' %>
-    </div>
-  </div>
+  <%%= link_to <%= prefixed_index_helper %>_path, class: 'btn btn-default pull-right' do %>
+    <i class="glyphicon glyphicon-list-alt"></i>
+    Back
+  <%% end %>
+  <%%= link_to <%= "[:#{prefix}, @#{singular_table_name}]" %>, class: 'btn btn-primary pull-right' do %>
+    <i class="glyphicon glyphicon-info-sign"></i>
+    Show
+  <%% end %>
+  <h1>Editing <%= human_name %></h1>
 </div>
 
 <%%= render 'form' %>

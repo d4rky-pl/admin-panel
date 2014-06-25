@@ -1,14 +1,10 @@
 <div class="page-header">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>New <%= singular_table_name %></h2>
-    </div>
-    <div class="col-md-4 text-right">
-      <%%= link_to 'Back', <%= prefixed_index_helper %>_path, class: 'btn btn-default' %>
-    </div>
-  </div>
+  <%%= link_to <%= prefixed_index_helper %>_path, class: 'btn btn-default pull-right' do %>
+    <i class="glyphicon glyphicon-list-alt"></i>
+    Back
+  <%% end %>
+  <h1>New <%= human_name %></h1>
 </div>
-
 
 <%%= render 'form' %>
 
