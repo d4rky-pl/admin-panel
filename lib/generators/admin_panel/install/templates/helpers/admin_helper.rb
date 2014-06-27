@@ -16,4 +16,8 @@ module AdminHelper
       end
     end.compact
   end
+
+  def per_page_class(klass, i)
+    (params[:per_page].to_i == i || (params[:per_page].nil? && klass.default_per_page == i)) ? 'btn-primary' : 'btn-default'
+  end
 end

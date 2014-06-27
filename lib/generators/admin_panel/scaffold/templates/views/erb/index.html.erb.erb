@@ -34,6 +34,15 @@
   </tbody>
 </table>
 
-<div class="text-center">
-  <%%= paginate @<%= plural_table_name %>, theme: 'admin-bootstrap' %>
+<div class="row">
+  <div class="col-md-8">
+    <%%= paginate @<%= plural_table_name %>, theme: 'admin-bootstrap' %>
+  </div>
+  <div class="col-md-4 text-right">
+    <div class="btn-group per-page">
+     <%% [ 10, 25, 100, 250, 500, 1000 ].each do |i| %>
+      <%%= link_to i, { action: :index, page: params[:page], per_page: i }, class: "btn #{per_page_class(<%= class_name %>, i)}" %>
+    <%% end %>
+    </div>
+  </div>
 </div>
