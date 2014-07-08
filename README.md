@@ -9,7 +9,7 @@ Installation
 Start with adding these gems to your Gemfile:
 
 ```ruby
-gem 'admin-panel', '~> 0.1.3'
+gem 'admin-panel', '~> 0.1.5'
 gem 'devise', '~> 3.2'
 gem 'simple_form', '3.1.0.rc1'
 gem 'bootstrap-sass', '~> 3.1'
