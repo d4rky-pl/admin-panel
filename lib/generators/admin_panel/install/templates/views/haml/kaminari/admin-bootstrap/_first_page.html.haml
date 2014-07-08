@@ -8,4 +8,5 @@
 -#
 - unless current_page.first?
   %li.first
-    = link_to raw(t 'views.pagination.first'), url, {:remote => remote}
+    = link_to url, {:remote => remote} do
+      %i.glyphicon.glyphicon-fast-backward

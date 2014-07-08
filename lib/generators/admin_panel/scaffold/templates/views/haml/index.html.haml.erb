@@ -35,4 +35,4 @@
   .col-md-4.text-right
     .btn-group.per-page
       - [ 10, 25, 100, 250, 500, 1000 ].each do |i|
-        = link_to i, params.merge(page: 1, params[:page], per_page: i), class: "btn #{per_page_class(<%= class_name %>, i)}"
+        = link_to i, params.merge(page: 1, per_page: i), class: "btn #{per_page_class(<%= class_name %>, i)}"
