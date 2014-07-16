@@ -1,4 +1,4 @@
-Admin Panel
+Admin Panel [![Build Status](https://secure.travis-ci.org/d4rky-pl/admin-panel.png)](http://travis-ci.org/d4rky-pl/admin-panel) [![Code Climate](https://codeclimate.com/github/d4rky-pl/admin-panel.png)](https://codeclimate.com/github/d4rky-pl/admin-panel) [![Gem Version](https://badge.fury.io/rb/admin-panel.png)](http://badge.fury.io/rb/admin-panel)
 ===========
 
 This gem has been created as a recruitment task I was given. It's a set of generators to create administration panel for your website.
