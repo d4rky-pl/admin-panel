@@ -12,25 +12,38 @@ describe AdminPanel::Generators::ScaffoldGenerator do
   describe 'scaffolder' do
     before { run_generator(%w(post title:string description:text public:boolean)) }
     # @see spec/dummy/bin/rails
-    it_should_exist 'app/models/post.rb'
+    it { expect(file('app/models/post.rb')).to exist }
 
     describe 'posts controller' do
       subject { file('app/controllers/admin/posts_controller.rb') }
-      it { should exist }
-      it { should contain 'include Administrable' }
-      it { should contain '@posts = Post.page(params[:page]).per(params[:per_page])' }
 
-      [ :index, :new, :edit, :create, :update, :show, :destroy ].each do |action|
-        it { should contain "def #{action.to_s}" }
+      it 'exists and is a proper ruby file' do
+        expect(subject).to exist.and have_correct_syntax
+      end
+
+      it 'does not have default scaffolding method' do
+        expect(subject).to_not have_method(:index).containing '@posts = Post.all'
+      end
+
+      it 'contains all necessary methods' do
+        expect(subject).to have_method(:index).containing   '@posts = Post.page(params[:page]).per(params[:per_page])'
+        expect(subject).to have_method(:show)
+        expect(subject).to have_method(:new).containing     '@post = Post.new'
+        expect(subject).to have_method(:create).containing  '@post = Post.new(post_params)'
+        expect(subject).to have_method(:edit)
+        expect(subject).to have_method(:update).containing  '@post.update(post_params)'
+        expect(subject).to have_method(:destroy).containing '@post.destroy'
       end
 
     end
 
-    it_should_exist 'app/views/admin/posts/index.html.erb'
-    it_should_exist 'app/views/admin/posts/edit.html.erb'
-    it_should_exist 'app/views/admin/posts/show.html.erb'
-    it_should_exist 'app/views/admin/posts/new.html.erb'
-    it_should_exist 'app/views/admin/posts/_form.html.erb'
-
+    %w(index edit show new _form).each do |view|
+      describe "posts controller view #{view}" do
+        subject { file("app/views/admin/posts/#{view}.html.erb") }
+        it 'exists and is a proper ruby file' do
+          expect(subject).to exist.and have_correct_syntax
+        end
+      end
+    end
   end
 end
