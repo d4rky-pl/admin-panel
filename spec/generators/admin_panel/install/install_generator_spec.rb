@@ -10,7 +10,7 @@ describe AdminPanel::Generators::InstallGenerator do
   end
 
   describe 'installer' do
-    before { run_generator }
+    before { run_generator(%w(--template-engine=erb)) }
     describe 'installing external gems correctly' do
       %w(devise.rb simple_form.rb kaminari_config.rb).each do |initializer|
         subject { file("config/initializers/#{initializer}") }
@@ -72,6 +72,28 @@ describe AdminPanel::Generators::InstallGenerator do
   end
 ) }
 
+      end
+    end
+  end
+
+  describe 'installer with haml' do
+    before { run_generator(%w(--template-engine=haml))  }
+    describe 'copying layout files' do
+      %w(application _messages _navigation).each do |filename|
+        subject { file("app/views/layouts/admin/#{filename}.html.haml") }
+        it { should exist.and have_correct_syntax }
+      end
+    end
+
+    describe 'copying helper, controllers, models and views' do
+      %w(
+        app/views/admin/dashboard/index.html.haml
+        app/views/admin/passwords/edit.html.haml
+        app/views/admin/passwords/new.html.haml
+        app/views/admin/sessions/new.html.haml
+     ).each do |filename|
+        subject { file(filename)}
+        it { should exist.and have_correct_syntax }
       end
     end
   end

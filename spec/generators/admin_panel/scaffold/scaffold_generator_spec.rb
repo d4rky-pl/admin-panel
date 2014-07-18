@@ -10,11 +10,11 @@ describe AdminPanel::Generators::ScaffoldGenerator do
   end
 
   describe 'scaffolder' do
-    before { run_generator(%w(post title:string description:text public:boolean)) }
+    before { run_generator(%w(post title:string description:text public:boolean --template-engine=erb)) }
     # @see spec/dummy/bin/rails
     it { expect(file('app/models/post.rb')).to exist }
 
-    describe 'posts controller' do
+    describe 'controller' do
       subject { file('app/controllers/admin/posts_controller.rb') }
 
       it 'exists and is a proper ruby file' do
@@ -38,9 +38,22 @@ describe AdminPanel::Generators::ScaffoldGenerator do
     end
 
     %w(index edit show new _form).each do |view|
-      describe "posts controller view #{view}" do
+      describe "view '#{view}'" do
         subject { file("app/views/admin/posts/#{view}.html.erb") }
         it 'exists and is a proper ruby file' do
+          expect(subject).to exist.and have_correct_syntax
+        end
+      end
+    end
+  end
+
+  describe 'scaffolder with haml' do
+    before { run_generator(%w(order title:string description:text --template-engine=haml))}
+
+    %w(index edit show new _form).each do |view|
+      describe "view '#{view}'" do
+        subject { file("app/views/admin/orders/#{view}.html.haml") }
+        it 'exists and is a proper haml file' do
           expect(subject).to exist.and have_correct_syntax
         end
       end
