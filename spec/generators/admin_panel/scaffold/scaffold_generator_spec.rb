@@ -14,6 +14,12 @@ describe AdminPanel::Generators::ScaffoldGenerator do
     # @see spec/dummy/bin/rails
     it { expect(file('app/models/post.rb')).to exist }
 
+    describe 'migration' do
+      subject { migration_file('db/migrate/create_posts.rb') }
+      it { is_expected.to be_a_migration }
+      it { is_expected.to contain(/t.string :title/) }
+    end
+
     describe 'controller' do
       subject { file('app/controllers/admin/posts_controller.rb') }
 

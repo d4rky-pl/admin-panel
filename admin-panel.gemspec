@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'ammeter', '>= 1.0'
   spec.add_development_dependency 'activerecord', '>= 4.0.0'
   spec.add_development_dependency 'haml', '>= 0.5'
+  spec.add_development_dependency 'sqlite3', '>= 1.3.9'
 
   spec.add_runtime_dependency 'railties', '>= 4.0.0'
   spec.add_runtime_dependency 'sass-rails', '>= 4.0.0'
